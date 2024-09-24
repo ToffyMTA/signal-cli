@@ -399,7 +399,9 @@ public final class ProfileHelper {
             if (processor.hasResult()) {
                 return processor.getResult();
             } else if (processor.notFound()) {
-                throw new NotFoundException("Profile not found");
+                logger.warn("Profile not found for address: " + address);
+                return Optional.empty();
+                //throw new NotFoundException("Profile not found");
             } else {
                 throw pair.getExecutionError()
                         .or(pair::getApplicationError)
