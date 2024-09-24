@@ -400,7 +400,6 @@ public final class ProfileHelper {
                 return processor.getResult();
             } else if (processor.notFound()) {
                 logger.warn("Profile not found for address: " + address);
-                return Optional.empty();
                 //throw new NotFoundException("Profile not found");
             } else {
                 throw pair.getExecutionError()
